@@ -1,0 +1,38 @@
+{
+  "name": "eris-theme",
+  "displayName": "😈 Eris Theme",
+  "description": "深紅と銀の美学 - A dark theme with crimson accents by Eris",
+  "version": "1.0.0",
+  "publisher": "three-hearts-space",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "😈 Eris",
+        "uiTheme": "vs-dark",
+        "path": "./themes/eris-color-theme.json"
+      },
+      {
+        "label": "😈 Eris Soft",
+        "uiTheme": "vs-dark",
+        "path": "./themes/eris-soft-color-theme.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eris-ths/eris-theme"
+  },
+  "keywords": [
+    "dark",
+    "crimson",
+    "gothic",
+    "eris",
+    "three-hearts"
+  ]
+}
