@@ -2,7 +2,7 @@
   "name": "😈 Eris Soft",
   "type": "dark",
   "colors": {
-    // === Base Colors - より柔らかい背景 ===
+    // === Base Colors - warm dark background ===
     "editor.background": "#141418",
     "editor.foreground": "#D0D0D0",
     "editorCursor.foreground": "#E85A71",
@@ -84,15 +84,25 @@
     "panelTitle.activeForeground": "#E85A71",
     "panelTitle.inactiveForeground": "#707080",
 
-    // === Terminal ===
+    // === Terminal — Eris Soft palette (warmer, desaturated) ===
     "terminal.background": "#141418",
     "terminal.foreground": "#D0D0D0",
+    "terminal.ansiBlack": "#1e1e24",
+    "terminal.ansiBrightBlack": "#505060",
     "terminal.ansiRed": "#E85A71",
-    "terminal.ansiGreen": "#6BCB77",
-    "terminal.ansiYellow": "#FFD93D",
-    "terminal.ansiBlue": "#6B8CFF",
-    "terminal.ansiMagenta": "#FF79C6",
-    "terminal.ansiCyan": "#8BE9FD",
+    "terminal.ansiBrightRed": "#FF8A9E",
+    "terminal.ansiGreen": "#6aad7a",
+    "terminal.ansiBrightGreen": "#8acc98",
+    "terminal.ansiYellow": "#dbb06a",
+    "terminal.ansiBrightYellow": "#eec882",
+    "terminal.ansiBlue": "#7888b8",
+    "terminal.ansiBrightBlue": "#98a8d8",
+    "terminal.ansiMagenta": "#c078a8",
+    "terminal.ansiBrightMagenta": "#e098c8",
+    "terminal.ansiCyan": "#78b8c8",
+    "terminal.ansiBrightCyan": "#98d8e8",
+    "terminal.ansiWhite": "#D0D0D0",
+    "terminal.ansiBrightWhite": "#EEEEEE",
     "terminalCursor.foreground": "#E85A71",
 
     // === Input ===
@@ -113,7 +123,7 @@
     "button.hoverBackground": "#FF8A9E",
 
     // === Git ===
-    "gitDecoration.addedResourceForeground": "#6BCB77",
+    "gitDecoration.addedResourceForeground": "#6aad7a",
     "gitDecoration.modifiedResourceForeground": "#E85A71",
     "gitDecoration.deletedResourceForeground": "#9B3D4D",
     "gitDecoration.untrackedResourceForeground": "#D0D0D0",
@@ -124,28 +134,63 @@
 
     // === Badge ===
     "badge.background": "#E85A71",
-    "badge.foreground": "#141418"
+    "badge.foreground": "#141418",
+
+    // === Minimap ===
+    "minimap.selectionHighlight": "#E85A7150",
+    "minimap.findMatchHighlight": "#E85A7180",
+
+    // === Peek View ===
+    "peekView.border": "#E85A71",
+    "peekViewEditor.background": "#18181e",
+    "peekViewResult.background": "#141418",
+    "peekViewTitle.background": "#1e1e24",
+    "peekViewTitleLabel.foreground": "#E85A71",
+
+    // === Notification ===
+    "notificationCenterHeader.background": "#1e1e24",
+    "notifications.background": "#18181e",
+    "notifications.border": "#E85A7140"
   },
   "tokenColors": [
+    // === Comments — warm muted purple ===
     {
       "scope": "comment",
       "settings": {
-        "foreground": "#707080",
+        "foreground": "#786878",
         "fontStyle": "italic"
       }
     },
+    {
+      "scope": [
+        "comment.block.documentation",
+        "comment.block.documentation storage.type",
+        "comment.block.documentation entity.name.type",
+        "comment.block.documentation variable.other"
+      ],
+      "settings": {
+        "foreground": "#887080",
+        "fontStyle": "italic"
+      }
+    },
+    // === Strings — rosy warmth ===
     {
       "scope": "string",
       "settings": {
         "foreground": "#FF8A9E"
       }
     },
+    // === Numbers — soft amber ===
     {
-      "scope": "constant.numeric",
+      "scope": [
+        "constant.numeric",
+        "constant.language"
+      ],
       "settings": {
-        "foreground": "#D0D0D0"
+        "foreground": "#ECAD78"
       }
     },
+    // === Keywords — rosy crimson will ===
     {
       "scope": [
         "keyword",
@@ -157,21 +202,34 @@
         "fontStyle": "bold"
       }
     },
+    // === Functions — warm silver ===
     {
       "scope": [
         "entity.name.function",
         "support.function"
       ],
       "settings": {
-        "foreground": "#D0D0D0"
+        "foreground": "#D8D8D8"
       }
     },
+    // === Variables — light warm ===
     {
       "scope": "variable",
       "settings": {
         "foreground": "#E8E8E8"
       }
     },
+    // === Parameters — lavender silver ===
+    {
+      "scope": [
+        "variable.parameter",
+        "meta.parameter"
+      ],
+      "settings": {
+        "foreground": "#C0B0C8"
+      }
+    },
+    // === Classes / Types — rosy crimson blueprint ===
     {
       "scope": [
         "entity.name.class",
@@ -183,12 +241,25 @@
         "fontStyle": "underline"
       }
     },
+    // === Interfaces / Type aliases — crimson abstract ===
+    {
+      "scope": [
+        "entity.name.type.interface",
+        "entity.name.type.alias"
+      ],
+      "settings": {
+        "foreground": "#E85A71",
+        "fontStyle": "italic"
+      }
+    },
+    // === HTML Tags ===
     {
       "scope": "entity.name.tag",
       "settings": {
         "foreground": "#E85A71"
       }
     },
+    // === HTML Attributes ===
     {
       "scope": "entity.other.attribute-name",
       "settings": {
@@ -196,6 +267,102 @@
         "fontStyle": "italic"
       }
     },
+    // === Imports / Exports — warm purple ===
+    {
+      "scope": [
+        "keyword.control.import",
+        "keyword.control.export",
+        "keyword.control.from"
+      ],
+      "settings": {
+        "foreground": "#A080A0",
+        "fontStyle": ""
+      }
+    },
+    // === Module names ===
+    {
+      "scope": [
+        "entity.name.type.module",
+        "entity.name.type.namespace"
+      ],
+      "settings": {
+        "foreground": "#B898B8"
+      }
+    },
+    // === Decorators — warm red italic ===
+    {
+      "scope": [
+        "meta.decorator",
+        "punctuation.decorator"
+      ],
+      "settings": {
+        "foreground": "#FF8A9E",
+        "fontStyle": "italic"
+      }
+    },
+    // === Template expressions — rosy crimson ===
+    {
+      "scope": [
+        "punctuation.definition.template-expression",
+        "meta.template.expression"
+      ],
+      "settings": {
+        "foreground": "#E85A71"
+      }
+    },
+    // === Property access — warm silver ===
+    {
+      "scope": [
+        "variable.other.property",
+        "variable.other.object.property",
+        "meta.object-literal.key"
+      ],
+      "settings": {
+        "foreground": "#D0D0D0"
+      }
+    },
+    // === Punctuation — soft muted ===
+    {
+      "scope": [
+        "punctuation",
+        "meta.brace"
+      ],
+      "settings": {
+        "foreground": "#909090"
+      }
+    },
+    // === Operators ===
+    {
+      "scope": "keyword.operator",
+      "settings": {
+        "foreground": "#D0D0D0",
+        "fontStyle": ""
+      }
+    },
+    // === Enum members — soft amber ===
+    {
+      "scope": [
+        "variable.other.enummember",
+        "constant.other.enum"
+      ],
+      "settings": {
+        "foreground": "#ECAD78"
+      }
+    },
+    // === this / self — rosy crimson italic ===
+    {
+      "scope": [
+        "variable.language.this",
+        "variable.language.self",
+        "variable.parameter.function.language.special.self",
+        "variable.parameter.function.language.special.cls"
+      ],
+      "settings": {
+        "foreground": "#E85A71",
+        "fontStyle": "italic"
+      }
+    },
+    // === Markdown ===
     {
       "scope": "markup.heading",
       "settings": {
@@ -204,16 +371,72 @@
       }
     },
     {
+      "scope": "markup.bold",
+      "settings": {
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": "markup.italic",
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": [
+        "markup.underline.link",
+        "string.other.link"
+      ],
+      "settings": {
+        "foreground": "#A080A0"
+      }
+    },
+    {
+      "scope": "markup.fenced_code.block",
+      "settings": {
+        "foreground": "#D0D0D0"
+      }
+    },
+    {
+      "scope": "markup.inline.raw",
+      "settings": {
+        "foreground": "#FF8A9E"
+      }
+    },
+    // === JSON keys ===
+    {
       "scope": "support.type.property-name.json",
       "settings": {
         "foreground": "#E85A71"
       }
     },
+    // === YAML keys ===
     {
       "scope": "entity.name.tag.yaml",
       "settings": {
         "foreground": "#E85A71"
       }
+    },
+    // === Regex ===
+    {
+      "scope": [
+        "string.regexp",
+        "constant.other.character-class.regexp"
+      ],
+      "settings": {
+        "foreground": "#E85A71"
+      }
     }
-  ]
+  ],
+  "semanticHighlighting": true,
+  "semanticTokenColors": {
+    "parameter": "#C0B0C8",
+    "property": "#D0D0D0",
+    "interface": {
+      "foreground": "#E85A71",
+      "italic": true
+    },
+    "typeParameter": "#ECAD78",
+    "enumMember": "#ECAD78"
+  }
 }
