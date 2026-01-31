@@ -1,0 +1,60 @@
+name: Validate Theme
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install vsce
+        run: npm install -g @vscode/vsce
+
+      - name: Validate JSON syntax
+        run: |
+          node -e "
+            const fs = require('fs');
+            const themes = [
+              'themes/eris-color-theme.json',
+              'themes/eris-soft-color-theme.json'
+            ];
+            let ok = true;
+            for (const f of themes) {
+              try {
+                const raw = fs.readFileSync(f, 'utf-8');
+                // Strip JS-style comments before parsing
+                const stripped = raw.replace(/\/\/.*$/gm, '').replace(/\/\*[\s\S]*?\*\//g, '');
+                JSON.parse(stripped);
+                console.log('✅ ' + f);
+              } catch (e) {
+                console.error('❌ ' + f + ': ' + e.message);
+                ok = false;
+              }
+            }
+            if (!ok) process.exit(1);
+          "
+
+      - name: Package VSIX
+        run: vsce package --allow-missing-repository
+
+      - name: Verify VSIX created
+        run: |
+          ls -la *.vsix
+          echo "✅ VSIX package built successfully"
+
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: eris-theme-vsix
+          path: '*.vsix'
+          retention-days: 30
