@@ -1,5 +1,9 @@
 # Eris Theme for VSCode
 
+[![Validate Theme](https://github.com/eris-ths/eris-theme/actions/workflows/validate.yml/badge.svg)](https://github.com/eris-ths/eris-theme/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-DC143C.svg)](https://opensource.org/licenses/MIT)
+[![VSCode](https://img.shields.io/badge/VSCode-Theme-DC143C.svg?logo=visual-studio-code)](https://code.visualstudio.com/)
+
 > *Deep crimson, silver, and void. Every color has intent.*
 
 A dark theme built on three principles:
